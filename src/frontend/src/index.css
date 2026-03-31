@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --background: 0.13 0 0;
+    --foreground: 0.95 0.01 80;
+    --card: 0.18 0 0;
+    --card-foreground: 0.95 0.01 80;
+    --popover: 0.18 0 0;
+    --popover-foreground: 0.95 0.01 80;
+    --primary: 0.68 0.12 70;
+    --primary-foreground: 0.13 0 0;
+    --secondary: 0.22 0 0;
+    --secondary-foreground: 0.95 0.01 80;
+    --muted: 0.22 0 0;
+    --muted-foreground: 0.6 0.01 70;
+    --accent: 0.68 0.12 70;
+    --accent-foreground: 0.13 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.28 0.02 70;
+    --input: 0.25 0 0;
+    --ring: 0.68 0.12 70;
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.18 0 0;
+    --sidebar-foreground: 0.95 0.01 80;
+    --sidebar-primary: 0.68 0.12 70;
+    --sidebar-primary-foreground: 0.13 0 0;
+    --sidebar-accent: 0.22 0 0;
+    --sidebar-accent-foreground: 0.95 0.01 80;
+    --sidebar-border: 0.28 0.02 70;
+    --sidebar-ring: 0.68 0.12 70;
+
+    /* Custom hotel tokens */
+    --gold: 0.68 0.12 70;
+    --gold-bright: 0.74 0.14 72;
+    --gold-dim: 0.55 0.1 68;
+    --cream: 0.95 0.01 80;
+    --cream-muted: 0.73 0.01 75;
+    --charcoal: 0.13 0 0;
+    --dark-panel: 0.18 0 0;
+    --dark-section: 0.2 0 0;
+    --green-veg: 0.72 0.19 142;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Playfair Display", serif;
+  }
+
+  .text-gold {
+    color: oklch(var(--gold));
+  }
+
+  .text-gold-bright {
+    color: oklch(var(--gold-bright));
+  }
+
+  .text-cream {
+    color: oklch(var(--cream));
+  }
+
+  .text-cream-muted {
+    color: oklch(var(--cream-muted));
+  }
+
+  .text-green-veg {
+    color: oklch(var(--green-veg));
+  }
+
+  .bg-dark {
+    background-color: oklch(var(--charcoal));
+  }
+
+  .bg-dark-panel {
+    background-color: oklch(var(--dark-panel));
+  }
+
+  .bg-dark-section {
+    background-color: oklch(var(--dark-section));
+  }
+
+  .border-gold {
+    border-color: oklch(var(--gold));
+  }
+
+  .border-gold-bright {
+    border-color: oklch(var(--gold-bright));
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 20px oklch(var(--gold) / 0.4), 0 0 40px
+      oklch(var(--gold) / 0.2), inset 0 0 20px oklch(var(--gold) / 0.05);
+  }
+
+  .gold-glow-sm {
+    box-shadow: 0 0 10px oklch(var(--gold) / 0.3), 0 0 20px
+      oklch(var(--gold) / 0.15);
+  }
+
+  .gold-text-glow {
+    text-shadow: 0 0 20px oklch(var(--gold) / 0.6), 0 0 40px
+      oklch(var(--gold) / 0.3);
+  }
+
+  .btn-gold {
+    background-color: oklch(var(--gold));
+    color: oklch(var(--charcoal));
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+
+  .btn-gold:hover {
+    background-color: oklch(var(--gold-bright));
+    box-shadow: 0 0 20px oklch(var(--gold) / 0.5);
+  }
+
+  .btn-outline-gold {
+    border: 1.5px solid oklch(var(--gold));
+    color: oklch(var(--gold));
+    background: transparent;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-gold:hover {
+    background-color: oklch(var(--gold) / 0.1);
+    box-shadow: 0 0 15px oklch(var(--gold) / 0.3);
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.7s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .food-card {
+    background-color: oklch(var(--dark-panel));
+    border: 1px solid oklch(var(--gold) / 0.3);
+    transition: all 0.4s ease;
+    overflow: hidden;
+  }
+
+  .food-card:hover {
+    border-color: oklch(var(--gold) / 0.8);
+    box-shadow: 0 0 25px oklch(var(--gold) / 0.2), 0 8px 30px rgba(0, 0, 0, 0.4);
+    transform: translateY(-4px);
+  }
+
+  .section-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      oklch(var(--gold)),
+      transparent
+    );
+    margin: 0 auto;
+  }
+
+  .navbar-scrolled {
+    background-color: oklch(var(--charcoal) / 0.97);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+  }
+}
